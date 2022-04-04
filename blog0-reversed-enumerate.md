@@ -12,6 +12,8 @@ for index, elem in zip(reversed(range(len(my_collection))), reversed(my_collecti
 ## The blog part
 This blog post was prompted after I looked through every top Google results for "python reverse enumerate" for my own use and only found the solutions to all be using deprecated features, most notably `itertools.izip()` and `xrange()`
 
+I am currently on Python 3.10.1
+
 So, have you ever needed to loop through a collection in python in reverse?
 
 The most pythonic way to loop through a collection often recommended is
@@ -35,7 +37,7 @@ for index, elem in reversed(enumerate(my_collection)):
     # Now it should spit out elements and indices in reverse, but will it though?
 ```
 
-But this won't work. Anyone who has tried this will know that Python will spit at this code and tell you that `enumerate object is not reversible`. To understand why Python does not allow this, I recommend reading about `generator`, which is what `enumerate` is (well, close enough, it's not exactly inheriting from `collections.abc.Generator`, but it behaves like one), but the short answer is that `enumerate` generates the variables `index` and `elem` as you loop through it, meaning it must start at the beginning and ends at the end, similar to a linked list per se, which also can not present it's final member without going from the beginning.
+But this won't work. Anyone who has tried this will know that Python will spit at this code and tell you that `enumerate object is not reversible`. To understand why Python does not allow this, I recommend reading about `generator`, which is what `enumerate` is (well, close enough, it's not exactly inheriting from `collections.abc.Generator`, but it behaves like one), but the short answer is that `enumerate()` generates the variables `index` and `elem` as you loop through it, meaning it must start at the beginning and ends at the end, similar to a linked list per se, which also can not present it's final member without going from the beginning.
 
 Oh and don't try
 
@@ -44,7 +46,7 @@ for index, elem in enumerate(reversed(my_collection)):
     # Don't
 ```
 
-Looking up `enumerate` on the official docs, it says that `enumerate` is equivalent to
+Looking up `enumerate` on the official docs, it says that `enumerate()` is equivalent to
 
 ```
 def enumerate(sequence, start=0):
@@ -54,7 +56,7 @@ def enumerate(sequence, start=0):
         n += 1
 ```
 
-and as you can see, `enumerate` always counts up, explaining why putting `reversed()` inside `enumerate()` won't work.
+and as you can see, `enumerate()` always counts up, explaining why putting `reversed()` inside `enumerate()` won't work.
 
 So let's try writing our own. Our `n` will begin at the end of the sequence, which is `len(sequence) - 1`, minus start, similar to `enumerate()`'s n begins at `0 + start`, and we'll `yield n, elem` as we loop the sequence in reverse, and `n` will count down instead of up. And now we have
 
@@ -66,7 +68,7 @@ def reversed_enumerate(sequence, start=0):
         n -= 1
 ```
 
-This looks reasonable enough. `reversed`, like `enumerate` is a lazy operation, meaning that it only presents the next value when asked, and not make the whole reversed sequence then loop through it, which means `reversed_enumerate`'s performance should be on par with its builtin function counterpart's
+This looks reasonable enough. `reversed()`, like `enumerate()`, is a lazy operation, meaning that it only presents the next value when asked, and not make the whole reversed sequence then loop through it, which means `reversed_enumerate()`'s performance should be on par with its builtin function counterpart's
 
 But while I was celebrating for having come up with such a genius solution, another crossed my mind. What if I just use `zip()`? Using `zip()` will look a little something like this
 
@@ -75,7 +77,7 @@ for index, elem in zip(reversed(range(len(my_collection))), reversed(my_collecti
     # Do something
 ```
 
-This effectively is `enumerate` in reversed gear, and all the functions used are builtin, with the unwanted outcome of looking really ugly. So let's compare their performance. A basic performace comparing program I can come up looks something like this
+This effectively is `enumerate()` in reversed gear, and all the functions used are builtin, with the unwanted outcome of looking really ugly. So let's compare their performance. A basic performace comparing program I can come up with looks something like this
 
 ```
 from time import perf_counter
@@ -119,10 +121,10 @@ for index in reversed(range(len(my_list))):
         my_list[index]
 third = perf_counter()
 
-print(second - first) # double reversed() in a zip()
-print(third - second) # only reversing index
+print(second - first) # double-reversed()-in-a-zip()'s time
+print(third - second) # only reversing index approach's time
 ```
 
 Same list, slightly different loop. Per loop we will look up the current element 10 times, over 10 million loops we will have done 100 million look-ups, which seems reasonable to me.
 
-On my computer, there's a clear difference between the two, with `zip()` taking the cake once again, needing only about 80% - 85% the time it takes for the other approach to finish. So until I find another approach, I must crown this `zip()` approach as the best way to technically, loop through a reversed enumerate of a collection.
+On my computer, there's a clear difference between the two, with `zip()` taking the cake once again, needing only about 80% - 85% the time it takes for the other approach to finish. So until I find a better approach, I must crown this `zip()` approach as the best way to technically, loop through a reversed enumerate of a collection.
