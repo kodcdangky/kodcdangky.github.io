@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Welcome to... my ramblings
 
-You can use the [editor on GitHub](https://github.com/kodcdangky/kodcdangky.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+This started because I found something cool when doing work with Python that I couldn't share anywhere. So I figured I'll make my own place to share stuff.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Eventually I'll add interactive stuff but for now pretty much everything is manual because I don't think it's possible to add interactive content using Markdown (but I could be entirely wrong).
 
-### Markdown
+And now since you're here...
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## My projects
 
-```markdown
-Syntax highlighted code block
+- [Flag Finder](https://github.com/kodcdangky/Flag-finder): A GUI Python program made with the tkinter library. Fetch and displays flag of any country that is on Wikipedia's list. Also caches them so you can use them for your own purpose.
 
-# Header 1
-## Header 2
-### Header 3
+- [Periodic Timer](https://github.com/kodcdangky/Periodic-Timer): Another GUI Python program made with [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI). A timer program which automatically and continuously loops for anything that requires an interval timing.
 
-- Bulleted
-- List
+- [Generalized Connect X bot](https://github.com/kodcdangky/Generalized-Connect-X-bot): A bot which plays any generalized version of the game Connect Four using depth-limited minimax algorithm with modified alpha-beta pruning. Comes with a game program made with [Pygame](https://www.pygame.org/news) for demonstration purpose.
 
-1. Numbered
-2. List
+## My "blogs"
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kodcdangky/kodcdangky.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- [How to reverse an enumerate in Python]()
