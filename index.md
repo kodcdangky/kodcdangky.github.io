@@ -14,6 +14,6 @@ And now since you're here...
 
 - [Generalized Connect X bot](https://github.com/kodcdangky/Generalized-Connect-X-bot): A bot which plays any generalized version of the game Connect Four using depth-limited minimax algorithm with modified alpha-beta pruning. Comes with a game program made with [Pygame](https://www.pygame.org/news) for demonstration purpose.
 
-## My "blogs"
+## My blogs
 
 - [How to reverse an enumerate in Python](https://kodcdangky.github.io/blog0-reversed-enumerate)
