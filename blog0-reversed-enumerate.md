@@ -37,7 +37,7 @@ for index, elem in reversed(enumerate(my_collection)):
     # Now it should spit out elements and indices in reverse, but will it though?
 ```
 
-But this won't work. Anyone who has tried this will know that Python will spit at this code and tell you that `enumerate object is not reversible`. To understand why Python does not allow this, I recommend reading about `generator`, which is what `enumerate` is (well, close enough, it's not exactly inheriting from `collections.abc.Generator`, but it behaves like one), but the short answer is that `enumerate()` generates the variables `index` and `elem` as you loop through it, meaning it must start at the beginning and ends at the end, similar to a linked list per se, which also can not present it's final member without going from the beginning.
+But this won't work. Anyone who has tried this will know that Python will spit on this code and tell you that `enumerate object is not reversible`. To understand why Python does not allow this, I recommend reading about `generator`, which is what `enumerate` is (well, close enough, it's not exactly inheriting from `collections.abc.Generator`, but it behaves like one), but the short answer is that `enumerate()` generates the variables `index` and `elem` as you loop through it, meaning it must start at the beginning and ends at the end, similar to a linked list per se, which also can not present it's final member without going from the beginning.
 
 Oh and don't try
 
