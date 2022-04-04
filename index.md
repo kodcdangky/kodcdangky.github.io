@@ -16,4 +16,4 @@ And now since you're here...
 
 ## My "blogs"
 
-- [How to reverse an enumerate in Python]()
+- [How to reverse an enumerate in Python](https://kodcdangky.github.io/blog0-reversed-enumerate)
