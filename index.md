@@ -2,7 +2,7 @@
 
 This started because I found something cool when doing work with Python that I couldn't share anywhere. So I figured I'll make my own place to share stuff.
 
-Eventually I'll add interactive stuff but for now pretty much everything is manual because I don't think it's possible to add interactive content using Markdown (but I could be entirely wrong).
+Eventually I'll figure out how to add interactive thingies.
 
 And now since you're here...
 
