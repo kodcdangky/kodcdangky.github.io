@@ -16,7 +16,7 @@ I am currently on Python 3.10.1
 
 So, have you ever needed to loop through a collection in python in reverse?
 
-The most pythonic way to loop through a collection often recommended is
+If you've ever looked up how to loop through a collection in python, the most pythonic/often recommended way is
 
 ```python
 for elem in my_collection:
