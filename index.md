@@ -1,8 +1,8 @@
-Welcome to where I document myself doing things
+Welcome to where I document myself doing things.
 
 This started because I found something cool when doing work with Python that I couldn't share anywhere. So I figured I'll make my own place to share stuff.
 
-Eventually I'll figure out how to add interactive thingies.
+Eventually I'll figure out how to add interactive thingies (maybe).
 
 And now since you're here...
 
