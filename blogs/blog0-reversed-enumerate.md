@@ -4,7 +4,7 @@ Published: April 5, 2022
 ## TLDR
 
 This is the best solution I've found as of the last update to this page
-```python
+```python3
 for index, elem in zip(reversed(range(len(my_collection))), reversed(my_collection)):
     # Do something with reversed order of index and elements
 ```
