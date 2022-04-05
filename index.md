@@ -2,6 +2,7 @@
 layout: default
 ---
 
+a
 ## Welcome to... my ramblings
 
 This started because I found something cool when doing work with Python that I couldn't share anywhere. So I figured I'll make my own place to share stuff.
