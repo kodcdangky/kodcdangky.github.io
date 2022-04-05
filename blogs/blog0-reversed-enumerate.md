@@ -4,7 +4,7 @@ Published: April 5, 2022
 ## TLDR
 
 This is the best solution I've found as of the last update to this page
-```py
+```python
 for index, elem in zip(reversed(range(len(my_collection))), reversed(my_collection)):
     # Do something with reversed order of index and elements
 ```
@@ -18,21 +18,21 @@ So, have you ever needed to loop through a collection in python in reverse?
 
 The most pythonic way to loop through a collection often recommended is
 
-```py
+```python
 for elem in my_collection:
     # Do something with the current element
 ```
 
 or if you also need the index as you are looping through
 
-```py
+```python
 for index, elem in enumerate(my_collection):
     # Do something with the current element its index
 ```
 
 So naturally, the most obvious solution to loop through a collection in reverse while still getting both indices and elements should be
 
-```py
+```python
 for index, elem in reversed(enumerate(my_collection)):
     # Now it should spit out elements and indices in reverse, but will it though?
 ```
@@ -41,14 +41,14 @@ But this won't work. Anyone who has tried this will know that Python will spit o
 
 Oh and don't try
 
-```py
+```python
 for index, elem in enumerate(reversed(my_collection)):
     # Don't
 ```
 
 Looking up `enumerate` on the official docs, it says that `enumerate()` is equivalent to
 
-```py
+```python
 def enumerate(sequence, start=0):
     n = start
     for elem in sequence:
@@ -60,7 +60,7 @@ and as you can see, `enumerate()` always counts up, explaining why putting `reve
 
 So let's try writing our own. Our `n` will begin at the end of the sequence, which is `len(sequence) - 1`, minus start, similar to `enumerate()`'s n begins at `0 + start`, and we'll `yield n, elem` as we loop the sequence in reverse, and `n` will count down instead of up. And now we have
 
-```py
+```python
 def reversed_enumerate(sequence, start=0):
     n = len(sequence) - 1 - start
     for elem in reversed(sequence):
@@ -72,14 +72,14 @@ This looks reasonable enough. `reversed()`, like `enumerate()`, is a lazy operat
 
 But while I was celebrating for having come up with such a genius solution, another crossed my mind. What if I just use `zip()`? Using `zip()` will look a little something like this
 
-```py
+```python
 for index, elem in zip(reversed(range(len(my_collection))), reversed(my_collection)):
     # Do something
 ```
 
 This effectively is `enumerate()` in reversed gear, and all the functions used are builtin, with the unwanted outcome of looking really ugly. So let's compare their performance. A basic performace comparing program I can come up with looks something like this
 
-```py
+```python
 from time import perf_counter
 
 def reversed_enumerate(sequence, start=0):
@@ -106,7 +106,7 @@ You can copy this program and run it yourself. The result honestly surprises me 
 
 So double `reversed()` in a `zip()` takes the cake, apparently. But after all this I realize there's a much simpler approach I haven't tried, which is to just loop through indices in reverse. Laughing at myself, I also realize the potential problem of look up time, especially if the value is looked up multiple times per loop, so onto another test it is
 
-```py
+```python
 from time import perf_counter
 
 my_list = [i for i in range(10 ** 7)]
